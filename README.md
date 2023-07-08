@@ -1,18 +1,27 @@
-# Vue 3 + TypeScript + Vite
+# MarkUP - Markdown Parser
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+![Showcase](example.png)
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [x] Easy to use
+- [x] Lightweight
+- [x] Easy to share
 
-## Type Support For `.vue` Imports in TS
+## Demo
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- [Live Demo](https://markup-phi.vercel.app/)
+- [Shareable Link](https://markup-phi.vercel.app/?text=TWFya2VkIC0gTWFya2Rvd24gUGFyc2VyCj09PT09PT09PT09PT09PT09PT09PT09PQoKW01hcmtlZF0gbGV0cyB5b3UgY29udmVydCBbTWFya2Rvd25dIGludG8gSFRNTC4gIE1hcmtkb3duIGlzIGEgc2ltcGxlIHRleHQgZm9ybWF0IHdob3NlIGdvYWwgaXMgdG8gYmUgdmVyeSBlYXN5IHRvIHJlYWQgYW5kIHdyaXRlLCBldmVuIHdoZW4gbm90IGNvbnZlcnRlZCB0byBIVE1MLiAgVGhpcyBkZW1vIHBhZ2Ugd2lsbCBsZXQgeW91IHR5cGUgYW55dGhpbmcgeW91IGxpa2UgYW5kIHNlZSBob3cgaXQgZ2V0cyBjb252ZXJ0ZWQuICBMaXZlLiAgTm8gbW9yZSB3YWl0aW5nIGFyb3VuZC4KCkhvdyBUbyBVc2UgVGhlIERlbW8KLS0tLS0tLS0tLS0tLS0tLS0tLQoKMS4gVHlwZSBpbiBzdHVmZiBvbiB0aGUgbGVmdC4KMi4gU2VlIHRoZSBsaXZlIHVwZGF0ZXMgb24gdGhlIHJpZ2h0LgoKVGhhdCdzIGl0LiAgUHJldHR5IHNpbXBsZS4gIFRoZXJlJ3MgYWxzbyBhIGRyb3AtZG93biBvcHRpb24gYWJvdmUgdG8gc3dpdGNoIGJldHdlZW4gdmFyaW91cyB2aWV3czoKCi0gKipQcmV2aWV3OioqICBBIGxpdmUgZGlzcGxheSBvZiB0aGUgZ2VuZXJhdGVkIEhUTUwgYXMgaXQgd291bGQgcmVuZGVyIGluIGEgYnJvd3Nlci4KLSAqKkhUTUwgU291cmNlOioqICBUaGUgZ2VuZXJhdGVkIEhUTUwgYmVmb3JlIHlvdXIgYnJvd3NlciBtYWtlcyBpdCBwcmV0dHkuCi0gKipMZXhlciBEYXRhOioqICBXaGF0IFttYXJrZWRdIHVzZXMgaW50ZXJuYWxseSwgaW4gY2FzZSB5b3UgbGlrZSBnb3J5IHN0dWZmIGxpa2UgdGhpcy4KLSAqKlF1aWNrIFJlZmVyZW5jZToqKiAgQSBicmllZiBydW4tZG93biBvZiBob3cgdG8gZm9ybWF0IHRoaW5ncyB1c2luZyBtYXJrZG93bi4KCldoeSBNYXJrZG93bj8KLS0tLS0tLS0tLS0tLQoKSXQncyBlYXN5LiAgSXQncyBub3Qgb3Zlcmx5IGJsb2F0ZWQsIHVubGlrZSBIVE1MLiAgQWxzbywgYXMgdGhlIGNyZWF0b3Igb2YgW21hcmtkb3duXSBzYXlzLAoKPiBUaGUgb3ZlcnJpZGluZyBkZXNpZ24gZ29hbCBmb3IgTWFya2Rvd24ncwo%2BIGZvcm1hdHRpbmcgc3ludGF4IGlzIHRvIG1ha2UgaXQgYXMgcmVhZGFibGUKPiBhcyBwb3NzaWJsZS4gVGhlIGlkZWEgaXMgdGhhdCBhCj4gTWFya2Rvd24tZm9ybWF0dGVkIGRvY3VtZW50IHNob3VsZCBiZQo%2BIHB1Ymxpc2hhYmxlIGFzLWlzLCBhcyBwbGFpbiB0ZXh0LCB3aXRob3V0Cj4gbG9va2luZyBsaWtlIGl0J3MgYmVlbiBtYXJrZWQgdXAgd2l0aCB0YWdzCj4gb3IgZm9ybWF0dGluZyBpbnN0cnVjdGlvbnMuCgpSZWFkeSB0byBzdGFydCB3cml0aW5nPyAgRWl0aGVyIHN0YXJ0IGNoYW5naW5nIHN0dWZmIG9uIHRoZSBsZWZ0IG9yCltjbGVhciBldmVyeXRoaW5nXSgvZGVtby8%2FdGV4dD0pIHdpdGggYSBzaW1wbGUgY2xpY2suCgpbTWFya2VkXTogaHR0cHM6Ly9naXRodWIuY29tL21hcmtlZGpzL21hcmtlZC8KW01hcmtkb3duXTogaHR0cDovL2RhcmluZ2ZpcmViYWxsLm5ldC9wcm9qZWN0cy9tYXJrZG93bi8K&showmarkdown=false)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Usage
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+There are two options that can be added to the URL:
+
+- `text` - The text to be parsed (`text` must be encoded with base64)
+- `showmarkdown` - Show the markdown text (if not pressent or equals to `true` the Markdown will be shown)
+
+## TODO
+
+- [ ] Shorter links
+- [ ] Add block code support
+- [ ] Better UI

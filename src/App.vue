@@ -7,7 +7,7 @@
         Markdown
       </label>
       <button @click="input = ''">Clear</button>
-      <button @click="showModal = !showModal">Share</button>
+      <button @click="openModal()">Share</button>
       <a href="https://github.com/rooyca" target="_blank" class="heart">❤️</a>
     </div>
   </nav>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="modal-body">
-        <input type="text" readonly :value="url" />
+        <input type="text" readonly :value="urlShort" />
         <button @click="copy">Copy</button>
         <button @click="showModal = false" style="background-color:#424242;">Close</button>
       </div>
@@ -46,6 +46,13 @@ import { ref, computed, onMounted } from 'vue';
 const input = ref('# Hello World!');
 const showModal = ref(false);
 const showMarkdown = ref(!window.location.href.includes('showmarkdown=false'));
+const urlShort = ref('Loading...');
+
+const openModal = () => {
+  createShortUrl();
+  showModal.value = true;
+};
+
 
 const url = computed(() => {
   const url = new URL(window.location.href);
@@ -66,10 +73,31 @@ const update = debounce((e) => {
 }, 100);
 
 const copy = () => {
-  navigator.clipboard.writeText(url.value).then(() => {
+  navigator.clipboard.writeText(urlShort.value).then(() => {
     alert('Copied!');
   });
   showModal.value = false;
+};
+
+const createShortUrl = async () => {
+    fetch("https://cool-river-1072.fly.dev/new", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url: 'https://markup-phi.vercel.app/?showmarkdown=false&text=' + btoa(input.value)
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      urlShort.value = data;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
 };
 
 onMounted(() => {
@@ -183,8 +211,16 @@ body {
   cursor: pointer;
 }
 code {
-  color: #f66;
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  color: #333;
+  font-family: "Courier New", Courier, monospace;
 }
+
 @media (max-width: 400px) {
   .editor {
     flex-direction: column;

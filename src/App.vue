@@ -8,7 +8,7 @@
       </label>
       <button @click="input = ''">Clear</button>
       <button @click="openModal()">Share</button>
-      <a href="https://github.com/rooyca" target="_blank" class="heart">❤️</a>
+      <a href="https://github.com/rooyca/markup" target="_blank" class="heart">❤️</a>
     </div>
   </nav>
 

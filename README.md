@@ -1,7 +1,5 @@
 # MarkUP - Markdown Parser
 
-You can check how short urls are created [here](api/main.py).
-
 ![Showcase](example.png)
 
 ## Features
@@ -21,6 +19,8 @@ There are two options that can be added to the URL:
 
 - `text` - The text to be parsed (`text` must be encoded with base64)
 - `showmarkdown` - Show the markdown text (if not pressent or equals to `true` the Markdown will be shown)
+
+> Check how short urls are created [here](api/main.py).
 
 ## TODO
 

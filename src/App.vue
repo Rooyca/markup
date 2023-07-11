@@ -42,7 +42,10 @@
 import { marked } from 'marked';
 import { debounce } from 'lodash-es';
 import { ref, computed, onMounted } from 'vue';
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
+const $toast = useToast();
 const input = ref('# Hello World!');
 const showModal = ref(false);
 const showMarkdown = ref(!window.location.href.includes('showmarkdown=false'));
@@ -52,7 +55,6 @@ const openModal = () => {
   createShortUrl();
   showModal.value = true;
 };
-
 
 const url = computed(() => {
   const url = new URL(window.location.href);
@@ -74,7 +76,7 @@ const update = debounce((e) => {
 
 const copy = () => {
   navigator.clipboard.writeText(urlShort.value).then(() => {
-    alert('Copied!');
+    $toast.success('Copied to clipboard!', {'position': 'top', 'duration': '1200'})
   });
   showModal.value = false;
 };

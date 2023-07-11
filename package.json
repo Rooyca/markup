@@ -11,7 +11,8 @@
   "dependencies": {
     "lodash-es": "^4.17.21",
     "marked": "^5.1.1",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-toast-notification": "^3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

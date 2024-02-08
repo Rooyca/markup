@@ -46,7 +46,7 @@ import {useToast} from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
 const $toast = useToast();
-const input = ref('# MarkUP
+const input = ref('''# MarkUP
 
 ---
 
@@ -181,7 +181,7 @@ With a reference later in the document defining the URL location:
 
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
-');
+''');
 const showModal = ref(false);
 const showMarkdown = ref(!window.location.href.includes('showmarkdown=false'));
 const urlShort = ref('Loading...');
